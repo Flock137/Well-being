@@ -1,345 +1,527 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title></title>
-    <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/Obsidianite.css" id="theme" />
-    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<title></title>
+	<link rel="stylesheet" href="dist/reveal.css" />
+	<link rel="stylesheet" href="dist/theme/Obsidianite.css" id="theme" />
+	<link rel="stylesheet" href="plugin/highlight/zenburn.css" />
 	<link rel="stylesheet" href="css/layout.css" />
 	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+	<link rel="stylesheet" href="plugin/chalkboard/style.css">
 
 	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
 
 
-    <script defer src="dist/fontawesome/all.min.js"></script>
+	<script defer src="dist/fontawesome/all.min.js"></script>
 
 	<script type="text/javascript">
 		var forgetPop = true;
 		function onPopState(event) {
-			if(forgetPop){
+			if (forgetPop) {
 				forgetPop = false;
 			} else {
 				parent.postMessage(event.target.location.href, "app://obsidian.md");
 			}
-        }
+		}
 		window.onpopstate = onPopState;
 		window.onmessage = event => {
-			if(event.data == "reload"){
+			if (event.data == "reload") {
 				window.document.location.reload();
 			}
 			forgetPop = true;
 		}
 
-		function fitElements(){
+		function fitElements() {
 			const itemsToFit = document.getElementsByClassName('fitText');
 			for (const item in itemsToFit) {
 				if (Object.hasOwnProperty.call(itemsToFit, item)) {
 					var element = itemsToFit[item];
-					fitElement(element,1, 1000);
+					fitElement(element, 1, 1000);
 					element.classList.remove('fitText');
 				}
 			}
 		}
 
-		function fitElement(element, start, end){
+		function fitElement(element, start, end) {
 
 			let size = (end + start) / 2;
 			element.style.fontSize = `${size}px`;
 
-			if(Math.abs(start - end) < 1){
-				while(element.scrollHeight > element.offsetHeight){
+			if (Math.abs(start - end) < 1) {
+				while (element.scrollHeight > element.offsetHeight) {
 					size--;
 					element.style.fontSize = `${size}px`;
 				}
 				return;
 			}
 
-			if(element.scrollHeight > element.offsetHeight){
+			if (element.scrollHeight > element.offsetHeight) {
 				fitElement(element, start, size);
 			} else {
 				fitElement(element, size, end);
-			}		
+			}
 		}
 
 
 		document.onreadystatechange = () => {
 			fitElements();
 			if (document.readyState === 'complete') {
-				if (window.location.href.indexOf("?export") != -1){
+				if (window.location.href.indexOf("?export") != -1) {
 					parent.postMessage(event.target.location.href, "app://obsidian.md");
 				}
-				if (window.location.href.indexOf("print-pdf") != -1){
+				if (window.location.href.indexOf("print-pdf") != -1) {
 					let stateCheck = setInterval(() => {
 						clearInterval(stateCheck);
 						window.print();
 					}, 250);
 				}
 			}
-	};
+		};
 
 
-        </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+	</script>
+</head>
 
-# Social Support and Personal Well-being
-</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-# Introduction
+					# Social Support and Personal Well-being
+				</div>
+				</script>
+			</section>
+			<section>
+				<section data-markdown>
+					<script type="text/template"><!-- .slide: class="drop" -->
+					<div class=""
+						style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+						absolute="true">
 
-[Social Support | Khan Academy](https://www.youtube.com/watch?v=gZMvA2Apg2A)
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+						# Introduction
 
-<img src="99 - Assets/Pasted image 20250425194151.png" alt="" style="object-fit: scale-down">
+						[Social Support | Khan Academy](https://www.youtube.com/watch?v=gZMvA2Apg2A)
+					</div>
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template"><!-- .slide: class="drop" -->
+					<div class=""
+						style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+						absolute="true">
 
-###### Social support is severely under-recognized in health illness in general
-</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+						<img src="99 - Assets/Pasted image 20250425194151.png" alt="" style="object-fit: scale-down">
 
-# Definition
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+						###### Social support is severely under-recognized in health illness in general
+					</div>
+					</script>
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+					<script type="text/template"><!-- .slide: class="drop" -->
+					<div class=""
+						style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+						absolute="true">
 
-## Social Support 
+						# Definition
+					</div>
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template"><!-- .slide: class="drop" -->
+					<div class=""
+						style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+						absolute="true">
 
-"Comprises the social resources that people perceive to be available or that are provided within the context of informal or formal relationship"
-</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+						## Social Support
 
-## Well-being
+						"Comprises the social resources that people perceive to be available or that are provided within
+						the context of informal or formal relationship"
+					</div>
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template"><!-- .slide: class="drop" -->
+					<div class=""
+						style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+						absolute="true">
 
-"The state of being comfortable, healthy, or happy"
-</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+						## Well-being
 
-# Why Does Social Support Matter?
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+						"The state of being comfortable, healthy, or happy"
+					</div>
+					</script>
+				</section>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-###### Humans are inherently social beings — loneliness and isolation negatively impact health.
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+					# Why Does Social Support Matter?
+				</div>
+				</script>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-# Psychological Benefits
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+					###### Humans are inherently social beings — loneliness and isolation negatively impact health.
+				</div>
+				</script>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-- Inhibits avoidance of physical and social activities
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Buffer the impact of stressful events
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Reduction of Stress and Anxiety 
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Enhancement of Self-Esteem and Positive Emotions
-- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Improvement in Coping Abilities
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+					# Psychological Benefits
+				</div>
+				</script>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-# Physical Health Benefits
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+					- Inhibits avoidance of physical and social activities
+					- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Buffer the impact of stressful
+					events
+					- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Reduction of Stress and Anxiety
+					- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Enhancement of Self-Esteem and
+					Positive Emotions
+					- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Improvement in Coping Abilities
+				</div>
+				</script>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-- Reduction in Cardiovascular Disease Risk
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Enhancement of Immune Function
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Lower Overall Mortality Rates
-- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Potential direct effect on physical health
-- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Potential lower levels of pain related disability
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+					# Physical Health Benefits
+				</div>
+				</script>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-# Negative Social Support 
+					- Reduction in Cardiovascular Disease Risk
+					- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Enhancement of Immune Function
+					- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Lower Overall Mortality Rates
+					- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Potential direct effect on
+					physical health
+					- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Potential lower levels of pain
+					related disability
+				</div>
+				</script>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Social support by itself is not always sufficient to promote appropriate adaptation ("ceteris paribus")
-- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Overly attentive social networks compromise self-management/sufficiency ("codependency")
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+					# Negative Social Support
 
-# Social Support and the Brain  
+					- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Social support by itself is not
+					always sufficient to promote appropriate adaptation ("ceteris paribus")
+					- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Overly attentive social networks
+					compromise self-management/sufficiency ("codependency")
+				</div>
+				</script>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-- Reduce **Alzheimer** disease and related disorder (ADRD) risk by enhancing **cognitive resilience**
-- Better perceived social support was associated with **larger total brain volume** and **gray matter volume** at baseline and a less steep **decrease in total brain volume** over time
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+					# Social Support and the Brain
 
-# How to Build Stronger Social Support  
-- Strengthen Existing Relationships 
-- Identify Your Support Needs 
-- Be Supportive Yourself
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+					- Reduce **Alzheimer** disease and related disorder (ADRD) risk by enhancing **cognitive
+					resilience**
+					- Better perceived social support was associated with **larger total brain volume** and **gray
+					matter volume** at baseline and a less steep **decrease in total brain volume** over time
+				</div>
+				</script>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-# Real-Life Example
+					# How to Build Stronger Social Support
+					- Strengthen Existing Relationships 
+					- Identify Your Support Needs 
+					- Be Supportive Yourself
+				</div>
+				</script>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->It's all around us. From Emotional, Informational, Esteem and even Tangible support does count.
-</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
-<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+					# Real-Life Example
 
-### Reference
+					- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->It's all around us. From
+					Emotional, Informational, Esteem and even Tangible support does count.
+				</div>
+				</script>
+			</section>
+			<section data-markdown>
+				<script type="text/template"><!-- .slide: class="drop" -->
+				<div class=""
+					style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center"
+					absolute="true">
 
-
-
-
-
-
-
-
-
-
-
+					### Reference
 
 
-<div class="footnotes" role="doc-endnotes">
-<ol>
-<li id="fn:1" role="doc-endnote" class="footnote"><p>
 
-[The Importance of Social Support](https://youtu.be/FDGBw7A1cMI?si=N-OtZOkQ1gu7FGD4) - Stanford Pain Medicine (2021)
 
-</p></li><li id="fn:2" role="doc-endnote" class="footnote"><p>
 
-[Association of Social Support With Brain Volume and Cognition](https://doi.org/10.1001/jamanetworkopen.2021.21122) - Salinas et al.(2021) 
 
-</p></li><li id="fn:3" role="doc-endnote" class="footnote"><p>
 
-[Social Health Is Associated With Structural Brain Changes in Older Adults: The Rotterdam Study](https://doi.org/10.1016/j.bpsc.2021.01.009) - Velpen et al. (2021)
 
-</p></li><li id="fn:4" role="doc-endnote" class="footnote"><p>
 
-[Social support and mental health: the mediating role of perceived stress - PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC10915202/) - Acoba (2024)
 
-</p></li><li id="fn:5" role="doc-endnote" class="footnote"><p>
 
-[Perceived social support and psychological wellbeing among Nepalese adolescents: the mediating role of self-esteem | BMC Psychology | Full Text](https://bmcpsychology.biomedcentral.com/articles/10.1186/s40359-020-00409-1) - Poudel, Gurung and Khanal (2020)
 
-</p></li><li id="fn:6" role="doc-endnote" class="footnote"><p>
 
-[Social Support - Health Promotion in Health Care – Vital Theories and Research - NCBI Bookshelf](https://www.ncbi.nlm.nih.gov/books/NBK585650/) - Author: Drageset, Editor: Haugan and Erikson (2021)
+					<div class="footnotes" role="doc-endnotes">
+						<ol>
+							<li id="fn:1" role="doc-endnote" class="footnote">
+								<p>
 
-</p></li><li id="fn:7" role="doc-endnote" class="footnote"><p>
+									[The Importance of Social Support](https://youtu.be/FDGBw7A1cMI?si=N-OtZOkQ1gu7FGD4)
+									- Stanford Pain Medicine (2021)
 
-[SOCIAL NETWORKS AND INFLAMMATORY MARKERS IN THE FRAMINGHAM HEART STUDY | Journal of Biosocial Science | Cambridge Core](https://www.cambridge.org/core/journals/journal-of-biosocial-science/article/abs/social-networks-and-inflammatory-markers-in-the-framingham-heart-study/587B19615D7AA03419955D9AAABF9ED2) - Loucks et al. (2006)
+								</p>
+							</li>
+							<li id="fn:2" role="doc-endnote" class="footnote">
+								<p>
 
-</p></li><li id="fn:8" role="doc-endnote" class="footnote"><p>
+									[Association of Social Support With Brain Volume and
+									Cognition](https://doi.org/10.1001/jamanetworkopen.2021.21122) - Salinas et
+									al.(2021)
 
-[Psychological Stress and the Human Immune System: A Meta-Analytic Study of 30 Years of Inquiry - PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC1361287/) - Segerstorm and Miller (2006)
+								</p>
+							</li>
+							<li id="fn:3" role="doc-endnote" class="footnote">
+								<p>
 
-</p></li><li id="fn:9" role="doc-endnote" class="footnote"><p>
+									[Social Health Is Associated With Structural Brain Changes in Older Adults: The
+									Rotterdam Study](https://doi.org/10.1016/j.bpsc.2021.01.009) - Velpen et al. (2021)
 
-[Social Relationships and Mortality Risk: A Meta-analytic Review | PLOS Medicine](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000316) - Holt-Lunstad, Smith and Layton (2010)
+								</p>
+							</li>
+							<li id="fn:4" role="doc-endnote" class="footnote">
+								<p>
 
-</p></li></ol>
-</div>
-</div></script></section></div>
-    </div>
+									[Social support and mental health: the mediating role of perceived stress -
+									PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC10915202/) - Acoba (2024)
 
-    <script src="dist/reveal.js"></script>
+								</p>
+							</li>
+							<li id="fn:5" role="doc-endnote" class="footnote">
+								<p>
 
-    <script src="plugin/markdown/markdown.js"></script>
-    <script src="plugin/highlight/highlight.js"></script>
-    <script src="plugin/zoom/zoom.js"></script>
-    <script src="plugin/notes/notes.js"></script>
-    <script src="plugin/math/math.js"></script>
+									[Perceived social support and psychological wellbeing among Nepalese adolescents:
+									the mediating role of self-esteem | BMC Psychology | Full
+									Text](https://bmcpsychology.biomedcentral.com/articles/10.1186/s40359-020-00409-1) -
+									Poudel, Gurung and Khanal (2020)
+
+								</p>
+							</li>
+							<li id="fn:6" role="doc-endnote" class="footnote">
+								<p>
+
+									[Social Support - Health Promotion in Health Care – Vital Theories and Research -
+									NCBI Bookshelf](https://www.ncbi.nlm.nih.gov/books/NBK585650/) - Author: Drageset,
+									Editor: Haugan and Erikson (2021)
+
+								</p>
+							</li>
+							<li id="fn:7" role="doc-endnote" class="footnote">
+								<p>
+
+									[SOCIAL NETWORKS AND INFLAMMATORY MARKERS IN THE FRAMINGHAM HEART STUDY | Journal of
+									Biosocial Science | Cambridge
+									Core](https://www.cambridge.org/core/journals/journal-of-biosocial-science/article/abs/social-networks-and-inflammatory-markers-in-the-framingham-heart-study/587B19615D7AA03419955D9AAABF9ED2)
+									- Loucks et al. (2006)
+
+								</p>
+							</li>
+							<li id="fn:8" role="doc-endnote" class="footnote">
+								<p>
+
+									[Psychological Stress and the Human Immune System: A Meta-Analytic Study of 30 Years
+									of Inquiry - PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC1361287/) - Segerstorm
+									and Miller (2006)
+
+								</p>
+							</li>
+							<li id="fn:9" role="doc-endnote" class="footnote">
+								<p>
+
+									[Social Relationships and Mortality Risk: A Meta-analytic Review | PLOS
+									Medicine](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000316)
+									- Holt-Lunstad, Smith and Layton (2010)
+
+								</p>
+							</li>
+						</ol>
+					</div>
+				</div>
+				</script>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/math/math.js"></script>
 	<script src="plugin/mermaid/mermaid.js"></script>
 	<script src="plugin/chart/chart.min.js"></script>
 	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
 	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/chalkboard/plugin.js"></script>
 	<script src="plugin/reveal-pointer/pointer.js"></script>
 
-    <script>
-      function extend() {
-        var target = {};
-        for (var i = 0; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (source.hasOwnProperty(key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      }
-
-	  function isLight(color) {
-		let hex = color.replace('#', '');
-
-		// convert #fff => #ffffff
-		if(hex.length == 3){
-			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+	<script>
+		function extend() {
+			var target = {};
+			for (var i = 0; i < arguments.length; i++) {
+				var source = arguments[i];
+				for (var key in source) {
+					if (source.hasOwnProperty(key)) {
+						target[key] = source[key];
+					}
+				}
+			}
+			return target;
 		}
 
-		const c_r = parseInt(hex.substr(0, 2), 16);
-		const c_g = parseInt(hex.substr(2, 2), 16);
-		const c_b = parseInt(hex.substr(4, 2), 16);
-		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
-		return brightness > 155;
-	}
+		function isLight(color) {
+			let hex = color.replace('#', '');
 
-	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
-	var isLight = isLight(bgColor);
+			// convert #fff => #ffffff
+			if (hex.length == 3) {
+				hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+			}
 
-	if(isLight){
-		document.body.classList.add('has-light-background');
-	} else {
-		document.body.classList.add('has-dark-background');
-	}
+			const c_r = parseInt(hex.substr(0, 2), 16);
+			const c_g = parseInt(hex.substr(2, 2), 16);
+			const c_b = parseInt(hex.substr(4, 2), 16);
+			const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+			return brightness > 155;
+		}
 
-      // default options to init reveal.js
-      var defaultOptions = {
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        transition: 'default', // none/fade/slide/convex/concave/zoom
-        plugins: [
-          RevealMarkdown,
-          RevealHighlight,
-          RevealZoom,
-          RevealNotes,
-          RevealMath.MathJax3,
-		  RevealMermaid,
-		  RevealChart,
-		  RevealCustomControls,
-	      RevealPointer,
-        ],
+		var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+		var isLight = isLight(bgColor);
+
+		if (isLight) {
+			document.body.classList.add('has-light-background');
+		} else {
+			document.body.classList.add('has-dark-background');
+		}
+
+		// default options to init reveal.js
+		var defaultOptions = {
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'default', // none/fade/slide/convex/concave/zoom
+			plugins: [
+				RevealMarkdown,
+				RevealHighlight,
+				RevealZoom,
+				RevealNotes,
+				RevealMath.MathJax3,
+				RevealMermaid,
+				RevealChart,
+				RevealCustomControls,
+				RevealMenu,
+				RevealPointer,
+				RevealChalkboard,
+			],
 
 
-    	allottedTime: 120 * 1000,
+			allottedTime: 120 * 1000,
 
-		mathjax3: {
-			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
-		},
-		markdown: {
-		  gfm: true,
-		  mangle: true,
-		  pedantic: false,
-		  smartLists: false,
-		  smartypants: false,
-		},
+			mathjax3: {
+				mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+			},
+			markdown: {
+				gfm: true,
+				mangle: true,
+				pedantic: false,
+				smartLists: false,
+				smartypants: false,
+			},
 
-		mermaid: {
-			theme: isLight ? 'default' : 'dark',
-		},
+			mermaid: {
+				theme: isLight ? 'default' : 'dark',
+			},
 
-		customcontrols: {
-			controls: [
-			]
-		},
-      };
+			customcontrols: {
+				controls: [
+					{
+						icon: '<i class="fa fa-pen-square"></i>',
+						title: 'Toggle chalkboard (B)',
+						action: 'RevealChalkboard.toggleChalkboard();'
+					},
+					{
+						icon: '<i class="fa fa-pen"></i>',
+						title: 'Toggle notes canvas (C)',
+						action: 'RevealChalkboard.toggleNotesCanvas();'
+					},
+				]
+			},
+			menu: {
+				loadIcons: false
+			}
+		};
 
-      // options from URL query string
-      var queryOptions = Reveal().getQueryHash() || {};
+		// options from URL query string
+		var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":false,"transition":"none","transitionSpeed":"fast"}, queryOptions);
-    </script>
+		var options = extend(defaultOptions, { "width": 960, "height": 700, "margin": 0.04, "controls": true, "progress": true, "slideNumber": false, "transition": "none", "transitionSpeed": "fast" }, queryOptions);
+	</script>
 
-    <script>
-      Reveal.initialize(options);
-    </script>
-  </body>
+	<script>
+		Reveal.initialize(options);
+	</script>
+</body>
 
-  <!-- created with Advanced Slides -->
+<!-- created with Advanced Slides -->
+
 </html>
